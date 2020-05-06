@@ -1,8 +1,6 @@
 version: "3"
 services:
   node-app:
-    links:
-      - redis
     build: ./node-app
     ports:
       - 3000:3000
