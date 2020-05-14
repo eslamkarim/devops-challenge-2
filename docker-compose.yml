@@ -1,17 +1,21 @@
 version: "3"
 services:
   node-app:
-    image: node-app
+    build: ./node-app
     ports:
+      - 8080:8080
+      - 8000:80
       - 3000:3000
+    expose: 
+      - 8080
     networks:
       - elk-net
 
 
   logstash:
-    image: kareemelkasaby/logstash-server:latest
-    environment:
-      - ES_JAVA_OPTS "-Xms128m -Xmx128m"
+    build: ./logstash
+    expose:
+      - 5140
     networks:
       - elk-net
 
@@ -24,6 +28,7 @@ services:
       - cluster.name=es-docker-cluster
       - cluster.initial_master_nodes=elasticsearch
       - bootstrap.memory_lock=true
+      - ES_JAVA_OPTS "-Xms512m -Xmx512m"
     volumes:
       - data01:/usr/share/elasticsearch/data
     ports:
