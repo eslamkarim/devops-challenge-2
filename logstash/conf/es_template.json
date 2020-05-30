@@ -17,7 +17,7 @@
             "type" : "date"
           },
           "body_bytes_sent": {
-            "type" : "integer"
+            "type" : "long"
           },
           "message" : {
             "type" : "text"
@@ -44,7 +44,7 @@
             "type" : "keyword"
           },
           "status" : {
-            "type" : "short"
+            "type" : "integer"
           },
           "tags" : {
             "type" : "keyword"

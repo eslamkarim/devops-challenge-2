@@ -1,16 +1,22 @@
 version: "3"
 services:
-  node-app:
-    build: ./node-app
-    ports:
-      - 8080:8080
-      - 8000:80
+  app:
+    build: ./app
+    ports: 
       - 3000:3000
-    expose: 
-      - 8080
+    depends_on: 
+      - logstash
     networks:
       - elk-net
 
+  node-app:
+    build: ./ngnix
+    ports: 
+      - 8080:8080
+    depends_on: 
+      - logstash
+    networks:
+      - elk-net
 
   logstash:
     build: ./logstash
