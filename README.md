@@ -1,8 +1,8 @@
 # devops-challenge-2
 devops-challenge-2
 
-to run just docker compose build and up \n
-curl or hit the url localhost:8080 to activate some logs note only error urls send bytes in body \n
+to run just docker compose build and up <br>
+curl or hit the url localhost:8080 to activate some logs note only error urls send bytes in body 
 ```
 localhost:8080  //ngnix instance
 localhost:5601  //kibana
